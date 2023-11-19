@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\CarsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,40 +44,57 @@ Route::get('/', function () {
 //         return "welcome to mobiles page";
 //     });
 // });
-Route::get('about', function () {
-    return "welcome to about page";
-});
-Route::get('Contact us', function () {
-    return "welcome to contact us page";
-});
-Route::prefix('Support')->group(function(){
-    Route::get('/', function (){
-        return "welcome to support page";});
-    Route::get('Chat', function () {
-        return "welcome to chat page";
-    });
-    Route::get('call', function () {
-        return "welcome to call page";
-    });
-    Route::get('ticket', function () {
-        return "welcome to ticket page";
-    });
-});
+// Route::get('about', function () {
+//     return "welcome to about page";
+// });
+// Route::get('Contact us', function () {
+//     return "welcome to contact us page";
+// });
+// Route::prefix('Support')->group(function(){
+//     Route::get('/', function (){
+//         return "welcome to support page";});
+//     Route::get('Chat', function () {
+//         return "welcome to chat page";
+//     });
+//     Route::get('call', function () {
+//         return "welcome to call page";
+//     });
+//     Route::get('ticket', function () {
+//         return "welcome to ticket page";
+//     });
+// });
 
 
-Route::prefix('Training')->group(function(){
-    Route::get('/', function (){
-        return "welcome to Training page";});
-    Route::get('HR', function () {
-        return "welcome to HR page";
-    });
-    Route::get('ICT', function () {
-        return "welcome to ICT page";
-    });
-    Route::get('MARKETING', function () {
-        return "welcome to marketing page";
-    });
-    Route::get('Logistics', function () {
-        return "welcome to logistics page";
-    });
+// Route::prefix('Training')->group(function(){
+//     Route::get('/', function (){
+//         return "welcome to Training page";});
+//     Route::get('HR', function () {
+//         return "welcome to HR page";
+//     });
+//     Route::get('ICT', function () {
+//         return "welcome to ICT page";
+//     });
+//     Route::get('MARKETING', function () {
+//         return "welcome to marketing page";
+//     });
+//     Route::get('Logistics', function () {
+//         return "welcome to logistics page";
+//     });
+// });
+// Route::fallback( function () {
+//    return redirect ('/');
+// });
+Route::get('cv', function () {
+    return view('cv');
 });
+// Route::get('login', function () {
+//     return view('login');
+// });
+// Route::post('receive', function () {
+//     return ' data received';
+// })->name('receive');
+// Route::get('test',[ExampleController::class ,'test']);
+Route::get('addCar', function () {
+    return view('addCar');
+});
+Route::post('carDetails',[CarsController::class ,'read']);
