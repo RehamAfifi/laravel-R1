@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <h2>Basic Table</h2>
+        <h2>Car Details</h2>
         <table class="table">
             <thead>
                 <tr>
