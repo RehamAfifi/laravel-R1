@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExampleController;
-use App\Http\Controllers\CarsController;
-
+use App\Http\Controllers\carsController;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\NewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,7 +95,16 @@ Route::get('cv', function () {
 //     return ' data received';
 // })->name('receive');
 // Route::get('test',[ExampleController::class ,'test']);
-Route::get('addCar', function () {
-    return view('addCar');
-});
-Route::post('carDetails',[CarsController::class ,'read']);
+// Route::get('addCar', function () {
+//     return view('addCar');
+// });
+// Route::post('carDetails',[CarsController::class ,'read']);
+// Route::get('addCar',[CarController::class,'store']);
+// Route::get('addCar', function () {
+//         return view('addCar');
+//      });
+//   Route::post('addCar',[CarController::class ,'store']);
+  Route::get('news',[NewsController::class ,'create']);
+   Route::post('news',[NewsController::class ,'store'])->name('news');
+
+   
