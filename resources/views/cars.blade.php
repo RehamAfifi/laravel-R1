@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>News List</title>
+  <title>Cars</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,30 +11,28 @@
 <body>
 
 <div class="container">
-  <h2 class="text-center bg-primary">All News</h2>
-  <table class="table table-hover ">
+  <h2>Cars</h2>
+  <table class="table table-hover">
     <thead>
       <tr>
-        <th>Auther Name</th>
         <th>Title</th>
-        <th>Content</th>
-        <th>Published</th>
+        <th>Description</th>
+        <th>published</th>
         <th>Edit</th>
       </tr>
     </thead>
     <tbody>
         
-        @foreach ($news as $onews)
+        @foreach ($cars as $car)
       <tr>
-        <td>{{$onews->auther}}</td>
-        <td>{{$onews->title}}</td>
-        <td>{{$onews->content}}</td>
-        @if ($onews->published==1)
+        <td>{{$car->carTitle}}</td>
+        <td>{{$car->description}}</td>
+        @if ($car->published==1)
         <td>True</td>
         @else
         <td>False</td>
         @endif
-        <td><a href="editNews/{{$onews->id}}">Edit</a></td>
+        <td><a href="editCar/{{$car->id}}">Edit</a></td>
       </tr>
       @endforeach
     </tbody>

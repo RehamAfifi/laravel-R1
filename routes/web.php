@@ -85,9 +85,9 @@ Route::get('/', function () {
 // Route::fallback( function () {
 //    return redirect ('/');
 // });
-Route::get('cv', function () {
-    return view('cv');
-});
+// Route::get('cv', function () {
+//     return view('cv');
+// });
 // Route::get('login', function () {
 //     return view('login');
 // });
@@ -103,8 +103,16 @@ Route::get('cv', function () {
 // Route::get('addCar', function () {
 //         return view('addCar');
 //      });
-//   Route::post('addCar',[CarController::class ,'store']);
-  Route::get('news',[NewsController::class ,'create']);
-   Route::post('news',[NewsController::class ,'store'])->name('news');
+//    Route::post('addCar',[CarController::class ,'store']);
+//    Route::get('cars',[CarController::class ,'index']);
+//    Route::get('editCar/{id}',[CarController::class ,'edit']);
+//    Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
+    Route::get('createNews',[NewsController::class ,'create'])->name('createNews');
+    Route::get('news',[NewsController::class ,'index']);
+    Route::post('storenews',[NewsController::class ,'store'])->name('storenews');
+    Route::get('editNews/{id}',[NewsController::class ,'edit']);
+    Route::put('updateNews/{id}',[NewsController::class ,'update'])->name('updateNews');
 
-   
+
+
+

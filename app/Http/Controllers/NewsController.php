@@ -12,7 +12,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news=News::get();
+        return view('News',compact('news'));
     }
 
     /**
@@ -20,7 +21,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news');
+        return view('createNews');
     }
 
     /**
@@ -38,7 +39,7 @@ class NewsController extends Controller
             $news->published=false;
         }
         $news->save();
-        return "news added succefully";   
+         return "news added succefully";
     }
 
     /**
@@ -49,14 +50,15 @@ class NewsController extends Controller
 //
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        $onews=News::findOrFail($id);
+        return view('editNews',compact('onews'));
     }
 
     /**
