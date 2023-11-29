@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
+    private $columns=['carTitle','description','published'];
     /**
      * Display a listing of the resource.
      */
@@ -20,7 +21,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('addCar');
     }
 
     /**
@@ -45,7 +46,8 @@ class CarController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $car=Car::findOrFail($id);
+        return view('showCar',compact('car'));
     }
 
     /**
@@ -63,7 +65,10 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        $request1 = $request->only($this->columns);
+        $request1['published'] = isset($request1['published'])? true:false;
+        Car::where('id',$id)->update($request1);
+        return redirect()->route('index');
     }
 
     /**
@@ -71,6 +76,7 @@ class CarController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Car::where('id',$id)->delete();
+        return"deleted";
     }
 }

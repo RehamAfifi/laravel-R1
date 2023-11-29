@@ -35,6 +35,8 @@
         <td>False</td>
         @endif
         <td><a href="editNews/{{$onews->id}}">Edit</a></td>
+        <td><a href="showNews/{{$onews->id}}">Show</a></td>
+        <td><a href="deleteNews/{{$onews->id}}">Delete</a></td>
       </tr>
       @endforeach
     </tbody>

@@ -16,7 +16,7 @@
     @csrf
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+      <input type="text" class="form-control" id="title" placeholder="Enter title" name="carTitle">
     </div>
     <div class="form-group">
       <label for="price">Price:</label>

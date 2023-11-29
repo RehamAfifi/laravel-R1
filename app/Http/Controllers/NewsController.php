@@ -10,6 +10,7 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      */
+    private $columns=['auther','title','content','published'];
     public function index()
     {
         $news=News::get();
@@ -47,7 +48,8 @@ class NewsController extends Controller
      */
     public function show(string $id)
     {
-//
+        $onews=News::findOrFail($id);
+        return view('showNews',compact('onews'));
     }
 
 
@@ -66,7 +68,10 @@ class NewsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request1 = $request->only($this->columns);
+        $request1['published'] = isset($request1['published'])? true:false;
+        News::where('id',$id)->update($request1);
+        return redirect()->route('news');
     }
 
     /**
@@ -74,6 +79,7 @@ class NewsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        News::where('id',$id)->delete();
+        return redirect()->route('news');
     }
 }

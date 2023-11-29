@@ -99,20 +99,23 @@ Route::get('/', function () {
 //     return view('addCar');
 // });
 // Route::post('carDetails',[CarsController::class ,'read']);
-// Route::get('addCar',[CarController::class,'store']);
-// Route::get('addCar', function () {
-//         return view('addCar');
-//      });
-//    Route::post('addCar',[CarController::class ,'store']);
-//    Route::get('cars',[CarController::class ,'index']);
-//    Route::get('editCar/{id}',[CarController::class ,'edit']);
-//    Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
+
+
+//Cars routes
+   Route::get('addCar',[CarController::class ,'create']);
+   Route::post('addCar',[CarController::class ,'store']);
+   Route::get('cars',[CarController::class ,'index'])->name('index');
+   Route::get('editCar/{id}',[CarController::class ,'edit']);
+   Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
+   Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
+   Route::get('showCar/{id}',[CarController::class ,'show']);
+   //News routes
     Route::get('createNews',[NewsController::class ,'create'])->name('createNews');
-    Route::get('news',[NewsController::class ,'index']);
+    Route::get('news',[NewsController::class ,'index'])->name('news');
     Route::post('storenews',[NewsController::class ,'store'])->name('storenews');
     Route::get('editNews/{id}',[NewsController::class ,'edit']);
     Route::put('updateNews/{id}',[NewsController::class ,'update'])->name('updateNews');
-
-
+    Route::get('showNews/{id}',[NewsController::class ,'show']);
+    Route::get('deleteNews/{id}',[NewsController::class ,'destroy']);
 
 

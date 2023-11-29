@@ -19,6 +19,8 @@
         <th>Description</th>
         <th>published</th>
         <th>Edit</th>
+        <th>show</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +35,8 @@
         <td>False</td>
         @endif
         <td><a href="editCar/{{$car->id}}">Edit</a></td>
+        <td><a href="showCar/{{$car->id}}">Show</a></td>
+        <td><a href="deleteCar/{{$car->id}}">delete</a></td>
       </tr>
       @endforeach
     </tbody>
