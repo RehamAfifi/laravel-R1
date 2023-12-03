@@ -12,7 +12,7 @@
 
 <div class="container">
   <h2>Add Car</h2>
-  <form action="{{url('addCar')}}" method="POST">
+  <form action="{{url('addCar')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="title">Title:</label>
@@ -27,8 +27,18 @@
     </div>
     <div class="form-group">
         <label for="description">Description:</label>
-        <textarea class="form-control" rows="5" id="description" name ="description"></textarea>
+        <textarea class="form-control" rows="5" id="description" name ="description">{{old('description')}}</textarea>
       </div>
+      @error('description')
+						<div class="alert alert-danger">{{$message}}</div>
+						@enderror()
+      <div class="form-group">
+      <label for="image">image:</label>
+      <input type="file" class="form-control" id="image"  placeholder="image" name="image" value="{{old('image')}}">
+    </div>
+    @error('image')
+						<div class="alert alert-danger">{{$message}}</div>
+						@enderror()
     <div class="checkbox">
       <label><input type="checkbox" name="published" value="published"> Published</label>
     </div>

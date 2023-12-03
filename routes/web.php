@@ -101,7 +101,7 @@ Route::get('/', function () {
 // Route::post('carDetails',[CarsController::class ,'read']);
 
 
-//Cars routes
+//Cars routes   
    Route::get('addCar',[CarController::class ,'create']);
    Route::post('addCar',[CarController::class ,'store']);
    Route::get('cars',[CarController::class ,'index'])->name('index');
@@ -123,5 +123,8 @@ Route::get('/', function () {
     Route::get('trashedNews',[NewsController::class ,'trashedNews'])->name('trashedNews');
      Route::get('deleteTrashed/{id}',[NewsController::class ,'delete']);
     Route::get('restoreNews/{id}',[NewsController::class ,'restore']);
-   
+   //upload
+   Route::get('showUpload',[ExampleController::class ,'showUpload']);
+   Route::post('upload',[ExampleController::class ,'upload'])->name('upload');
+
 
