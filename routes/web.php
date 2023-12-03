@@ -102,16 +102,16 @@ Route::get('/', function () {
 
 
 //Cars routes
-//    Route::get('addCar',[CarController::class ,'create']);
-//    Route::post('addCar',[CarController::class ,'store']);
-//    Route::get('cars',[CarController::class ,'index'])->name('index');
-//    Route::get('editCar/{id}',[CarController::class ,'edit']);
-//    Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
-//    Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
-//    Route::get('showCar/{id}',[CarController::class ,'show']);
-//    Route::get('trashedCars',[CarController::class ,'trashed'])->name('trashedCars');
-//    Route::get('deleteTrsh/{id}',[CarController::class ,'delete']);
-//    Route::get('restoreCar/{id}',[CarController::class ,'restore']);
+   Route::get('addCar',[CarController::class ,'create']);
+   Route::post('addCar',[CarController::class ,'store']);
+   Route::get('cars',[CarController::class ,'index'])->name('index');
+   Route::get('editCar/{id}',[CarController::class ,'edit']);
+   Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
+   Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
+   Route::get('showCar/{id}',[CarController::class ,'show']);
+   Route::get('trashedCars',[CarController::class ,'trashed'])->name('trashedCars');
+   Route::get('deleteTrash/{id}',[CarController::class ,'delete']);
+   Route::get('restoreCar/{id}',[CarController::class ,'restore']);
    //News routes
     Route::get('createNews',[NewsController::class ,'create'])->name('createNews');
     Route::get('news',[NewsController::class ,'index'])->name('news');
@@ -121,7 +121,7 @@ Route::get('/', function () {
     Route::get('showNews/{id}',[NewsController::class ,'show']);
     Route::get('deleteNews/{id}',[NewsController::class ,'destroy']);
     Route::get('trashedNews',[NewsController::class ,'trashedNews'])->name('trashedNews');
-    Route::get('deleteTrash/{id}',[NewsController::class ,'delete']);
+     Route::get('deleteTrashed/{id}',[NewsController::class ,'delete']);
     Route::get('restoreNews/{id}',[NewsController::class ,'restore']);
    
 

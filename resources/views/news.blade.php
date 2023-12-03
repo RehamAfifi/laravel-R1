@@ -20,6 +20,8 @@
         <th>Content</th>
         <th>Published</th>
         <th>Edit</th>
+        <th>Show</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>

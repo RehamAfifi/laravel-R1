@@ -18,6 +18,9 @@
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" placeholder="Enter title" name="carTitle">
     </div>
+    @error('carTitle')
+						<div class="alert alert-danger">{{$message}}</div>
+						@enderror()
     <div class="form-group">
       <label for="price">Price:</label>
       <input type="number" class="form-control" id="price"  placeholder="Enter Price" name="price">

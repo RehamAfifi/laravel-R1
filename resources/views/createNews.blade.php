@@ -22,6 +22,9 @@
 					<label class="form-group">
 						<input type="text" class="form-control" name="auther"  required>
 						<span>Auther Name </span>
+						@error('auther')
+						<div class="alert alert-danger">{{$message}}</div>
+						@enderror()
 						<span class="border"></span>
 					</label>
 					<label class="form-group">

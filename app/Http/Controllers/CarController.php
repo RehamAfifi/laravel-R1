@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Car;
 use Illuminate\Http\Request;
+ use Illuminate\Http\RedirectResponse;
 
 class CarController extends Controller
 {
@@ -29,16 +30,22 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $cars=new Car;
-        $cars->carTitle=$request->title;
-        $cars->description=$request->description;
-        if(isset($request->published)){
-            $cars->published=true;
-        }else{
-            $cars->published=false;
-        }
-        $cars->save();
-        return "car added succefully";
+        // $cars=new Car;
+        // $cars->carTitle=$request->carTitle;
+        // $cars->description=$request->description;
+        // if(isset($request->published)){
+        //     $cars->published=true;
+        // }else{
+        //     $cars->published=false;
+        // }
+        // $cars->save();
+        $request->validate(['carTitle'=>'required|string',
+        'description'=>'required|string|max:100',
+        ]);
+        $request1 = $request->only($this->columns);
+        $request1['published'] = isset($request1['published'])? true:false;
+          Car::create($request1);
+        return redirect('cars');
     }
 
     /**
@@ -74,9 +81,24 @@ class CarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id):RedirectResponse
     {
         Car::where('id',$id)->delete();
-        return"deleted";
+        return redirect('cars');
+    }
+    public function trashed()
+    {
+       $cars =Car::onlyTrashed()->get();
+        return view('trashed',compact('cars'));
+    }
+    public function delete(string $id):RedirectResponse
+    {
+        Car::where('id',$id)->ForceDelete();
+        return redirect('cars');
+    }
+    public function restore(string $id):RedirectResponse
+    {
+       $cars = Car::where('id',$id)->restore();
+        return redirect('cars');
     }
 }
