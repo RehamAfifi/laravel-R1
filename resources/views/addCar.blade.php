@@ -39,6 +39,8 @@
     @error('image')
 						<div class="alert alert-danger">{{$message}}</div>
 						@enderror()
+           
+            <div class="form-group"> </div>     
     <div class="checkbox">
       <label><input type="checkbox" name="published" value="published"> Published</label>
     </div>

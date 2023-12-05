@@ -75,9 +75,9 @@ class NewsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request1 = $request->only($this->columns);
-        $request1['published'] = isset($request1['published'])? true:false;
-        News::where('id',$id)->update($request1);
+        $data = $request->only($this->columns);
+        $data['published'] = isset($request['published'])? true:false;
+        News::where('id',$id)->update($data);
         return redirect()->route('news');
     }
 
