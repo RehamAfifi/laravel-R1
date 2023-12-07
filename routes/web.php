@@ -126,5 +126,7 @@ Route::get('/', function () {
    //upload
    Route::get('showUpload',[ExampleController::class ,'showUpload']);
    Route::post('upload',[ExampleController::class ,'upload'])->name('upload');
+   Route::get('place',[ExampleController::class ,'place']);
+   Route::get('blog',[ExampleController::class ,'blog']);
 
 
