@@ -5,6 +5,7 @@ use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\carsController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PlaceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,31 +103,34 @@ Route::get('/', function () {
 
 
 //Cars routes   
-   Route::get('addCar',[CarController::class ,'create']);
-   Route::post('addCar',[CarController::class ,'store']);
-   Route::get('cars',[CarController::class ,'index'])->name('index');
-   Route::get('editCar/{id}',[CarController::class ,'edit']);
-   Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
-   Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
-   Route::get('showCar/{id}',[CarController::class ,'show']);
-   Route::get('trashedCars',[CarController::class ,'trashed'])->name('trashedCars');
-   Route::get('deleteTrash/{id}',[CarController::class ,'delete']);
-   Route::get('restoreCar/{id}',[CarController::class ,'restore']);
-   //News routes
-    Route::get('createNews',[NewsController::class ,'create'])->name('createNews');
-    Route::get('news',[NewsController::class ,'index'])->name('news');
-    Route::post('storenews',[NewsController::class ,'store'])->name('storenews');
-    Route::get('editNews/{id}',[NewsController::class ,'edit']);
-    Route::put('updateNews/{id}',[NewsController::class ,'update'])->name('updateNews');
-    Route::get('showNews/{id}',[NewsController::class ,'show']);
-    Route::get('deleteNews/{id}',[NewsController::class ,'destroy']);
-    Route::get('trashedNews',[NewsController::class ,'trashedNews'])->name('trashedNews');
-     Route::get('deleteTrashed/{id}',[NewsController::class ,'delete']);
-    Route::get('restoreNews/{id}',[NewsController::class ,'restore']);
-   //upload
-   Route::get('showUpload',[ExampleController::class ,'showUpload']);
-   Route::post('upload',[ExampleController::class ,'upload'])->name('upload');
-   Route::get('place',[ExampleController::class ,'place']);
-   Route::get('blog',[ExampleController::class ,'blog']);
+//    Route::get('addCar',[CarController::class ,'create']);
+//    Route::post('addCar',[CarController::class ,'store']);
+//    Route::get('cars',[CarController::class ,'index'])->name('index');
+//    Route::get('editCar/{id}',[CarController::class ,'edit']);
+//    Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
+//    Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
+//    Route::get('showCar/{id}',[CarController::class ,'show']);
+//    Route::get('trashedCars',[CarController::class ,'trashed'])->name('trashedCars');
+//    Route::get('deleteTrash/{id}',[CarController::class ,'delete']);
+//    Route::get('restoreCar/{id}',[CarController::class ,'restore']);
+//    //News routes
+//     Route::get('createNews',[NewsController::class ,'create'])->name('createNews');
+//     Route::get('news',[NewsController::class ,'index'])->name('news');
+//     Route::post('storenews',[NewsController::class ,'store'])->name('storenews');
+//     Route::get('editNews/{id}',[NewsController::class ,'edit']);
+//     Route::put('updateNews/{id}',[NewsController::class ,'update'])->name('updateNews');
+//     Route::get('showNews/{id}',[NewsController::class ,'show']);
+//     Route::get('deleteNews/{id}',[NewsController::class ,'destroy']);
+//     Route::get('trashedNews',[NewsController::class ,'trashedNews'])->name('trashedNews');
+//      Route::get('deleteTrashed/{id}',[NewsController::class ,'delete']);
+//     Route::get('restoreNews/{id}',[NewsController::class ,'restore']);
+//    //upload
+//    Route::get('showUpload',[ExampleController::class ,'showUpload']);
+//    Route::post('upload',[ExampleController::class ,'upload'])->name('upload');
 
+//Places Routes
+   Route::get('place',[PlaceController::class ,'index']);
+//    Route::get('blog',[ExampleController::class ,'blog']);
+Route::get('create/place',[PlaceController::class ,'create'])->name('create.place');
+Route::post('store/place',[PlaceController::class ,'store'])->name('store.place');
 
