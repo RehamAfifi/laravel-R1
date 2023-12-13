@@ -18,8 +18,9 @@ return new class extends Migration
             $table->integer('from');
             $table->integer('to');
             $table->text('image');
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

@@ -11,7 +11,7 @@
 <body>
 
 <div class="container">
-  <h2>Create placAdd Car</h2>
+  <h2>Create place</h2>
   <form action="{{route('store.place')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -31,11 +31,17 @@
 						@enderror()
     <div class="form-group">
       <label for="from">from:</label>
-      <input type="number" class="form-control" id="from"  placeholder="from" name="from">
+      <input type="number" class="form-control" id="from"  placeholder="from" name="from" value={{old('from')}}>
+      @error('from')
+      <div class="alert alert-danger"> {{$message}}</div>
+      @enderror
     </div>
     <div class="form-group">
-      <label for="from">to:</label>
+      <label for="to">to:</label>
       <input type="number" class="form-control" id="to"  placeholder="to" name="to">
+    @error('to')
+      <div class="alert alert-danger"> {{$message}}</div>
+      @enderror  
     </div>
       <div class="form-group">
       <label for="image">image:</label>

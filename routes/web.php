@@ -133,4 +133,8 @@ Route::get('/', function () {
 //    Route::get('blog',[ExampleController::class ,'blog']);
 Route::get('create/place',[PlaceController::class ,'create'])->name('create.place');
 Route::post('store/place',[PlaceController::class ,'store'])->name('store.place');
-
+Route::get('placesList',[PlaceController::class ,'placesList']);
+Route::get('deletePlace/{id}',[PlaceController::class ,'destroy']);
+Route::get('trashedPlaces',[PlaceController::class ,'trashedPlaces'])->name('trashedPlaces');
+Route::get('restorePlace/{id}',[PlaceController::class ,'restore']);
+Route::get('deletetPlace/{id}',[PlaceController::class ,'delete']);
