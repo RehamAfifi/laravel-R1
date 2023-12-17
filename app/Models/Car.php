@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Car extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $fillable=['carTitle','description','published','price','image'];
+    protected $fillable=['category_id','carTitle','description','published','price','image'];
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

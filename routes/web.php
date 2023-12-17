@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\carsController;
-use App\Http\Controllers\CarController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\CarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,17 +102,19 @@ Route::get('/', function () {
 // Route::post('carDetails',[CarsController::class ,'read']);
 
 
-//Cars routes   
-//    Route::get('addCar',[CarController::class ,'create']);
-//    Route::post('addCar',[CarController::class ,'store']);
-//    Route::get('cars',[CarController::class ,'index'])->name('index');
-//    Route::get('editCar/{id}',[CarController::class ,'edit']);
-//    Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
-//    Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
-//    Route::get('showCar/{id}',[CarController::class ,'show']);
-//    Route::get('trashedCars',[CarController::class ,'trashed'])->name('trashedCars');
-//    Route::get('deleteTrash/{id}',[CarController::class ,'delete']);
-//    Route::get('restoreCar/{id}',[CarController::class ,'restore']);
+//Cars routes
+   Route::get('addCar',[CarController::class ,'create']);
+   Route::post('addCar',[CarController::class ,'store']);
+   Route::get('cars',[CarController::class ,'index'])->name('index');
+   Route::get('editCar/{id}',[CarController::class ,'edit']);
+   Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
+   Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
+   Route::get('showCar/{id}',[CarController::class ,'show']);
+   Route::get('trashedCars',[CarController::class ,'trashed'])->name('trashedCars');
+   Route::get('deleteTrash/{id}',[CarController::class ,'delete']);
+   Route::get('restoreCar/{id}',[CarController::class ,'restore']);
+
+
 //    //News routes
 //     Route::get('createNews',[NewsController::class ,'create'])->name('createNews');
 //     Route::get('news',[NewsController::class ,'index'])->name('news');
@@ -129,12 +131,12 @@ Route::get('/', function () {
 //    Route::post('upload',[ExampleController::class ,'upload'])->name('upload');
 
 //Places Routes
-   Route::get('place',[PlaceController::class ,'index']);
+  // Route::get('place',[PlaceController::class ,'index']);
 //    Route::get('blog',[ExampleController::class ,'blog']);
-Route::get('create/place',[PlaceController::class ,'create'])->name('create.place');
-Route::post('store/place',[PlaceController::class ,'store'])->name('store.place');
-Route::get('placesList',[PlaceController::class ,'placesList']);
-Route::get('deletePlace/{id}',[PlaceController::class ,'destroy']);
-Route::get('trashedPlaces',[PlaceController::class ,'trashedPlaces'])->name('trashedPlaces');
-Route::get('restorePlace/{id}',[PlaceController::class ,'restore']);
-Route::get('deletetPlace/{id}',[PlaceController::class ,'delete']);
+// Route::get('create/place',[PlaceController::class ,'create'])->name('create.place');
+// Route::post('store/place',[PlaceController::class ,'store'])->name('store.place');
+// Route::get('placesList',[PlaceController::class ,'placesList']);
+// Route::get('deletePlace/{id}',[PlaceController::class ,'destroy']);
+// Route::get('trashedPlaces',[PlaceController::class ,'trashedPlaces'])->name('trashedPlaces');
+// Route::get('restorePlace/{id}',[PlaceController::class ,'restore']);
+// Route::get('deletetPlace/{id}',[PlaceController::class ,'delete']);

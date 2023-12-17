@@ -44,6 +44,15 @@
     <div class="checkbox">
       <label><input type="checkbox" name="published" value="published"> Published</label>
     </div>
+    <div class="form-group">
+            <label for="categories">categories</label>
+            <select name="category_id" id="">
+                <option value="">Select Category</option>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->categoryName}}</option>
+                @endforeach
+</select>
+        </div>
     <button type="submit" class="btn btn-default">Add</button>
   </form>
 </div>

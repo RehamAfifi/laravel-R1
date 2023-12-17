@@ -19,6 +19,7 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>published</th>
+                    <th>Category</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +27,7 @@
                     <td>{{ $car->carTitle }}</td>
                     <td>{{ $car->description }}</td>
                     <td>{{ $car->published }}</td>
-
+                    <td>{{  $car->category->categoryName }}</td>
                 </tr>
 
             </tbody>

@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
       <label for="price">Price:</label>
-      <input type="number" class="form-control" id="price"  placeholder="Enter Price" name="price" value="{{$car->price}}>
+      <input type="number" class="form-control" id="price"  placeholder="Enter Price" name="price" value="{{$car->price}}">
     </div>
     <div class="form-group">
         <label for="description">Description:</label>
@@ -38,6 +38,13 @@
     <div class="checkbox">
       <label><input type="checkbox" name="published" value="published" @checked($car->published)> Published</label>
     </div>
+    <div class="form-group">
+        <label for="category">category:</label>
+        <select name="category_id">
+            @foreach($categories as $category)
+        <option  {{$category->id == $car->category_id? 'selected' : ''}} value="{{$category->id}}">{{$category->categoryName}}</option>
+       @endforeach
+     </select> </div>
     <button type="submit" class="btn btn-default">Edit</button>
     
   </form>

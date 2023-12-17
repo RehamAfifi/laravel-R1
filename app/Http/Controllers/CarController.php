@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Car;
+use App\Models\Category;
 use Illuminate\Http\Request;
  use Illuminate\Http\RedirectResponse;
 use App\Traits\Common;
@@ -24,7 +25,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('addCar');
+        $categories=Category::select('id','categoryName')->get();
+        return view('addCar',compact('categories'));
     }
 
     /**
@@ -35,7 +37,8 @@ class CarController extends Controller
         $messages=['carTitle.required'=>'Title is required',
          'description.required'=>'should be text',
         'price'=>'required'];
-        $data=$request->validate(['carTitle'=>'required|string',
+        $data=$request->validate(['category_id'=>'exists:categories,id',
+        'carTitle'=>'required|string',
         'description'=>'required|string|max:100',
         'image'=>'required|mimes:png,jpg,jpeg|max:2048',
         'price'=>'required','numeric'
@@ -62,7 +65,8 @@ class CarController extends Controller
     public function edit(string $id)
     {
          $car=Car::findOrFail($id);
-        return view('editCar',compact('car'));
+         $categories=Category::findOrFail([1,2],['id','categoryName']);
+        return view('editCar',compact('car','categories'));
     }
 
     /**
@@ -70,14 +74,18 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id):RedirectResponse
     {
+        
         $messages=['carTitle.required'=>'Title is required',
         'description.required'=>'should be text',
        'price'=>'required'];
-       $data=$request->validate(['carTitle'=>'required|string',
-       'description'=>'required|string|max:100',
-       'image'=>'nullable,mimes:png,jpg,jpeg|max:2048',
-       'price'=>'required','numeric'
+        $data=$request->validate([
+        'category_id'=>'exists:App\Models\Category,id',
+        'carTitle'=>'required|string',
+        'description'=>'required|string|max:100',
+        'image'=>'nullable|mimes:png,jpg,jpeg|max:2048',
+        'price'=>'required','numeric',
        ],$messages);
+      
        $data['published'] = isset($request['published']);
        if(isset($request->image)){
          $data['image']=$request['image'];
