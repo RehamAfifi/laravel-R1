@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
  use Illuminate\Http\RedirectResponse;
 use App\Traits\Common;
 class CarController extends Controller
-   
+
 {
     use Common;
      private $columns=['carTitle','description','published'];
@@ -34,15 +34,17 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $messages=['carTitle.required'=>'Title is required',
+        $messages=['carTitle.required'=>__('messages.requiredmsg'),
          'description.required'=>'should be text',
-        'price'=>'required'];
-        $data=$request->validate(['category_id'=>'exists:categories,id',
+       ];
+        $data=$request->validate(
+        ['category_id'=>'exists:categories,id',
         'carTitle'=>'required|string',
         'description'=>'required|string|max:100',
         'image'=>'required|mimes:png,jpg,jpeg|max:2048',
         'price'=>'required','numeric'
         ],$messages);
+     
         $data['published'] = isset($request['published']);
         $fileName=$this->uploadFile($request->image,'assets/images');
         $data['image'] =$fileName;
@@ -74,8 +76,8 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id):RedirectResponse
     {
-        
-        $messages=['carTitle.required'=>'Title is required',
+
+        $messages=['carTitle.required'=>__('messages.required'),
         'description.required'=>'should be text',
        'price'=>'required'];
         $data=$request->validate([
@@ -85,7 +87,7 @@ class CarController extends Controller
         'image'=>'nullable|mimes:png,jpg,jpeg|max:2048',
         'price'=>'required','numeric',
        ],$messages);
-      
+
        $data['published'] = isset($request['published']);
        if(isset($request->image)){
          $data['image']=$request['image'];

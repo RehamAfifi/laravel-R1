@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
+
 return [
 
     /*
@@ -54,7 +55,6 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-
     'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL'),
@@ -185,4 +185,19 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+|--------------------------------------------------------------------------
+| Available locales
+|--------------------------------------------------------------------------
+|
+| List all locales that your application works with
+|
+*/
+    'available_locales' => [
+        'English' => 'en',
+        'Arabic' => 'ar',
+
+      ],
+
 ];
+

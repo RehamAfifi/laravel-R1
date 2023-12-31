@@ -103,9 +103,9 @@ Route::get('/', function () {
 
 
 //Cars routes
-   Route::get('addCar',[CarController::class ,'create']);
-   Route::post('addCar',[CarController::class ,'store']);
-   Route::get('cars',[CarController::class ,'index'])->name('index');
+  // Route::get('addCar',[CarController::class ,'create']);
+  // Route::post('addCar',[CarController::class ,'store']);
+   Route::get('cars',[CarController::class ,'index'])->name('index')->middleware('verified');
    Route::get('editCar/{id}',[CarController::class ,'edit']);
    Route::put('updateCar/{id}',[CarController::class ,'update'])->name('updateCar');
    Route::get('deleteCar/{id}',[CarController::class ,'destroy']);
@@ -113,7 +113,7 @@ Route::get('/', function () {
    Route::get('trashedCars',[CarController::class ,'trashed'])->name('trashedCars');
    Route::get('deleteTrash/{id}',[CarController::class ,'delete']);
    Route::get('restoreCar/{id}',[CarController::class ,'restore']);
-
+   Auth::routes(['verify'=>true]);
 
 //    //News routes
 //     Route::get('createNews',[NewsController::class ,'create'])->name('createNews');
@@ -140,3 +140,16 @@ Route::get('/', function () {
 // Route::get('trashedPlaces',[PlaceController::class ,'trashedPlaces'])->name('trashedPlaces');
 // Route::get('restorePlace/{id}',[PlaceController::class ,'restore']);
 // Route::get('deletetPlace/{id}',[PlaceController::class ,'delete']);
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//  Route::get('test',[ExampleController::class ,'testSession']);
+
+ Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ 
+        Route::get('addCar',[CarController::class ,'create']);
+        Route::post('addCar',[CarController::class ,'store']);
+    });
