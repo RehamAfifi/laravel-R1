@@ -142,14 +142,14 @@ Route::get('/', function () {
 // Route::get('deletetPlace/{id}',[PlaceController::class ,'delete']);
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //  Route::get('test',[ExampleController::class ,'testSession']);
 
- Route::group(
-    [
-        'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-    ], function(){ 
-        Route::get('addCar',[CarController::class ,'create']);
-        Route::post('addCar',[CarController::class ,'store']);
-    });
+//  Route::group(
+//     [
+//         'prefix' => LaravelLocalization::setLocale(),
+//         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+//     ], function(){ 
+//         Route::get('addCar',[CarController::class ,'create']);
+//         Route::post('addCar',[CarController::class ,'store']);
+//     });
